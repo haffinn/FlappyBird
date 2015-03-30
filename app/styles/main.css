@@ -4,7 +4,7 @@
 	left: 0;
 	width: 5em;
 	height: 5em;
-	background: blue;
+	background: url('http://dev.bowdenweb.com/ua/os/ios/i/ios7-icons/airplane/airplane-50.png');
 }
 
 .Scoreboard {
@@ -60,5 +60,5 @@ height: 57.6em;
 margin-left: -51.2em;
 margin-top: -28.8em;
 overflow: hidden;
-background: red;
+background: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
 }
