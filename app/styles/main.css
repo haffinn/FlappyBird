@@ -53,17 +53,7 @@ body {
 	padding: 0.2em 0;
 }
 .GameCanvas {
-<<<<<<< HEAD
-font-size: 10px;
-position: absolute;
-left: 50%;
-top: 50%;
-width: 102.4em;
-height: 57.6em;
-margin-left: -51.2em;
-margin-top: -28.8em;
-overflow: hidden;
-=======
+
 	font-size: 10px;
 	position: absolute;
 	left: 50%;
@@ -80,7 +70,7 @@ overflow: hidden;
 @-webkit-keyframes fly {
     from { background-position: 0em; }
     to { background-position: -10em; }
->>>>>>> 43e22592172dd7b130d8b887c6798d0e6e61c78f
+
 }
 .Background-image {
 font-size: 10px;
