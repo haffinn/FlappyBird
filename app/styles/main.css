@@ -2,10 +2,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 5em;
-	height: 5em;
-	background: url('http://dev.bowdenweb.com/ua/os/ios/i/ios7-icons/airplane/airplane-50.png');
+	width: 3.4em;
+	height: 2.4em;
+	background-image: url('/images/bird.png'); /*each bird is 34px wide and 24px tall*/
 	transform: translateZ(0);
+	-webkit-animation: fly .8s steps(3) infinite;
 }
 
 .Scoreboard {
@@ -62,5 +63,11 @@ body {
 	margin-top: -28.8em;
 	overflow: hidden;
 	background: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
+}
+
+/* Makes the bird fly */
+@-webkit-keyframes fly {
+    from { background-position: 0em; }
+    to { background-position: -10em; }
 }
 
