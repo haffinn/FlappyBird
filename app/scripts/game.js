@@ -73,6 +73,7 @@ window.Game = (function() {
 					scoreboardEl.removeClass('is-visible');
 					that.start();
 				});
+
 	};
 
 	/**
