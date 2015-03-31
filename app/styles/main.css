@@ -7,6 +7,7 @@
 	background-image: url('/images/bird.png'); /*each bird is 34px wide and 24px tall*/
 	transform: translateZ(0);
 	-webkit-animation: fly .8s steps(3) infinite;
+
 }
 
 .Scoreboard {
@@ -53,7 +54,6 @@ body {
 	padding: 0.2em 0;
 }
 .GameCanvas {
-
 	font-size: 10px;
 	position: absolute;
 	left: 50%;
@@ -63,15 +63,15 @@ body {
 	margin-left: -51.2em;
 	margin-top: -28.8em;
 	overflow: hidden;
-	background: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
+	background-image: url('/images/cloud.jpg');
 }
 
 /* Makes the bird fly */
 @-webkit-keyframes fly {
     from { background-position: 0em; }
     to { background-position: -10em; }
-
 }
+
 .Background-image {
 font-size: 10px;
 position: absolute;
