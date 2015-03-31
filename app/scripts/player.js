@@ -5,25 +5,19 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 60; // * 10 pixels per second
+	var SPEED = 50; // * 10 pixels per second
 	var WIDTH = 5;
-	var HEIGHT = 5;
+	var HEIGHT = 13.8;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
-	var JUMP_VELOCITY = -200;
+	var JUMP_VELOCITY = -250;
 	var GRAVITY = 1000;
 
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
-
-		if (Controls._didJump) {
-			this.onJump.bind(this);
-		}
-
-		//Controls.on('jump', this.onJump.bind(this));
 	};
 
 	/**
@@ -51,27 +45,12 @@ window.Player = (function() {
 
 		if(Controls.keys.space) {
 			this.pos.y -= delta * SPEED;
-
-
-			// this.vel.y = -JUMP_VELOCITY;
-			// this.pos.y = delta * this.vel.y;
 		}
-
-		//console.log (this.vel);
-		// if (Controls._didJump) {
-		// 	this.pos.y -= delta * SPEED;
-		// 	console.log(Controls._didJump);
-		// 	Controls._didJump = false;
-		// 	console.log(Controls._didJump);
-		// }
-
+		
 		// #### GRAVITY ####
 		this.vel.y = GRAVITY * delta;
 		this.pos.y += delta * this.vel.y;
 		// #################
-
-		// console.log('_didJump:');
-		// console.log(Controls._didJump);
 		
 		this.checkCollisionWithBounds();
 
@@ -81,18 +60,15 @@ window.Player = (function() {
 
 	Player.prototype.onJump = function () {
 		// Player jumps
+
 		this.vel.y = -JUMP_VELOCITY;
+		console.log('player onjump recived');
 
 		// if (this.vel.y === 0) {
 		// 	this.vel.y = -JUMP_VELOCITY;
 		// }
 	};
 
-
-	// Player.prototype.flap = function() {
-	// 	this.body.velocity.y = -400;
-	// 	this.game.add.tween(this).to({angle: -40}, 100).start();
-	// };
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
