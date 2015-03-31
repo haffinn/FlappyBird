@@ -11,10 +11,19 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
+	// var JUMP_VELOCITY = -1500;
+	// var GRAVITY = 4000;
+
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
+
+		// if (Controls._didJump) {
+		// 	this.onJump.bind(this);
+		// }
+
+		//Controls.on('jump', this.onJump.bind(this));
 	};
 
 	/**
@@ -23,6 +32,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		//this.vel = { x: 0, y: 0};
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -39,11 +49,41 @@ window.Player = (function() {
 			this.pos.y -= delta * SPEED;
 		}
 
+
+		// if (Controls._didJump) {
+		// 	this.pos.y -= delta * SPEED;
+		// 	console.log(Controls._didJump);
+		// 	Controls._didJump = false;
+		// 	console.log(Controls._didJump);
+		// }
+
+		// this.vel.x = Controls.inputVec.x * SPEED;
+
+		// // Gravity
+		// this.vel.y = GRAVITY * delta;
+
+		// this.pos.y += delta * this.vel.y;
+
+		// console.log('_didJump:');
+		// console.log(Controls._didJump);
+		
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
+
+	// Player.prototype.onJump = function () {
+	// 	if (this.vel.y === 0) {
+	// 		this.vel.y = -JUMP_VELOCITY;
+	// 	}
+	// };
+
+
+	// Player.prototype.flap = function() {
+	// 	this.body.velocity.y = -400;
+	// 	this.game.add.tween(this).to({angle: -40}, 100).start();
+	// };
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
