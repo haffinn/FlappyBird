@@ -72,25 +72,34 @@ body {
     to { background-position: -10em; }
 }
 
+
+/*@-webkit-keyframes forward {
+	from { background-position: 0em; }
+	to { background-position: -1000em; }
+}*/
+
 .Background-image {
-font-size: 10px;
-position: absolute;
-left: 50%;
-top: 50%;
-width: 102.4em;
-height: 57.6em;
-margin-left: -51.2em;
-margin-top: -28.8em;
-overflow: hidden;
-background-image: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
+	font-size: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 102.4em;
+	height: 57.6em;
+	margin-left: -51.2em;
+	margin-top: -28.8em;
+	overflow: hidden;
+	background-image: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
 }
 .Foreground-image {
-position: absolute;
-left: 0%;
-top: 80%;
-width: 102.4em;
-height: 57.6em;
-background-image: url('http://www.smashingbuzz.com/wp-content/uploads/2014/03/10.jpg');
+	position: absolute;
+	left: 0%;
+	top: 80%;
+	width: 102.4em;
+	height: 57.6em;
+	background-image: url('/images/ground.png');
+	transform: translateZ(0);
+	/*-webkit-animation: forward .8s infinite;*/
+	/*background-image: url('http://www.smashingbuzz.com/wp-content/uploads/2014/03/10.jpg');*/
 }
 
 
