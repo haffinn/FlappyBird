@@ -22,6 +22,7 @@ window.Controls = (function() {
     var Controls = function() {
         this._didJump = false;
         this.keys = {};
+        this.inputVec = { x: 0, y: 0};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
@@ -58,6 +59,20 @@ window.Controls = (function() {
         return answer;
     };
     
+    // Controls.prototype.onFrame = function() {
+    //     // if (this.keys.space) {
+    //     //     this.inputVec.y = 2;
+    //     // }
+
+    //     if (this.keys.right) {
+    //         this.inputVec.x = 1;
+    //     } else if (this.keys.left) {
+    //         this.inputVec.x = -1;
+    //     } else {
+    //         this.inputVec.x = 0;
+    //     }
+    // };
+
     // Export singleton.
     return new Controls();
 })();

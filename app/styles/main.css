@@ -2,9 +2,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 5em;
-	height: 5em;
-	background: url('http://dev.bowdenweb.com/ua/os/ios/i/ios7-icons/airplane/airplane-50.png');
+	width: 3.4em;
+	height: 2.4em;
+	background-image: url('/images/bird.png'); /*each bird is 34px wide and 24px tall*/
+	transform: translateZ(0);
+	-webkit-animation: fly .8s steps(3) infinite;
 }
 
 .Scoreboard {
@@ -37,20 +39,21 @@
 	cursor: pointer;
 }
 .Scoreboard-restartText {
-font-family: 'Comic Sans MS', serif;
-font-size: 2.4em;
-color: white;
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2.4em;
+	color: white;
 }
 body {
-background: black;
+	background: black;
 }
 .browsehappy {
-margin: 0.2em 0;
-background: ?#?ccc?;
-color: #000;
-padding: 0.2em 0;
+	margin: 0.2em 0;
+	background: ?#?ccc?;
+	color: #000;
+	padding: 0.2em 0;
 }
 .GameCanvas {
+<<<<<<< HEAD
 font-size: 10px;
 position: absolute;
 left: 50%;
@@ -60,6 +63,24 @@ height: 57.6em;
 margin-left: -51.2em;
 margin-top: -28.8em;
 overflow: hidden;
+=======
+	font-size: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 102.4em;
+	height: 57.6em;
+	margin-left: -51.2em;
+	margin-top: -28.8em;
+	overflow: hidden;
+	background: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
+}
+
+/* Makes the bird fly */
+@-webkit-keyframes fly {
+    from { background-position: 0em; }
+    to { background-position: -10em; }
+>>>>>>> 43e22592172dd7b130d8b887c6798d0e6e61c78f
 }
 .Background-image {
 font-size: 10px;
