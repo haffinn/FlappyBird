@@ -7,10 +7,10 @@ window.Controls = (function() {
      */
     var KEYS = {
         32: 'space',
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
+        // 37: 'left',
+        // 38: 'up',
+        // 39: 'right',
+        // 40: 'down'
     };
 
     /**
@@ -23,22 +23,33 @@ window.Controls = (function() {
         this._didJump = false;
         this.keys = {};
         this.inputVec = { x: 0, y: 0};
+
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
     };
 
-
     Controls.prototype._onKeyDown = function(e) {
-        // Only jump if space wasn't pressed.
-        if (e.keyCode === 32 && !this.keys.space) {
-            this._didJump = true;
-        }
+        // // Only jump if space wasn't pressed.
+        // if (e.keyCode === 32 && !this.keys.space) {
+        //     this._didJump = true;
+        // }
 
-        // Remember that this button is down.
-        if (e.keyCode in KEYS) {
+        // // Remember that this button is down.
+        // if (e.keyCode in KEYS) {
+        //     var keyName = KEYS[e.keyCode];
+        //     this.keys[keyName] = true;
+        //     return false;
+        // }
+
+        if (e.keyCode in KEYS && !this.keys[KEYS[e.keyCode]]) {
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = true;
+
+            if (keyName === 'space') {
+                this._didJump = true;
+                console.log('controls-onkeydown emitted');
+            }
             return false;
         }
     };
@@ -57,6 +68,7 @@ window.Controls = (function() {
     Controls.prototype.didJump = function() {
         var answer = this._didJump;
         this._didJump = false;
+        console.log('inside didJump in controls');
         return answer;
     };
 
