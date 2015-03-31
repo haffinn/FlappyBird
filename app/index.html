@@ -18,6 +18,20 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        
+        <!-- JQUERY FYRIR MUTE TAKKA -->
+        <script>
+            jQuery(document).ready(function(){
+                var audio = document.getElementById('playSong');
+
+                document.getElementById('mute').addEventListener('click', function (songEvent){
+                    songEvent = songEvent || window.event;
+                    audio.muted = !audio.muted;
+                    songEvent.preventDefault();
+                }, true);
+            })
+        </script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -25,7 +39,12 @@
         <![endif]-->
 
         <div class="GameCanvas">
-            <!-- <audio id="audioPlayer" src="99problems.mp3" autoplay></audio> -->
+            <!-- AUDIO + MUTE -->
+            <audio id="playSong" autoplay="autoplay"> 
+                <source src="eminem.mp3" />
+            </audio>
+            <a href="" id="mute">MUTE</a>
+            <!-- ............ -->
             <div class="Player"></div>
             <div class="Pipes"></div>
             <div class="Scoreboard">
@@ -33,6 +52,7 @@
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
+        
         </div>
 
         <!-- build:js scripts/vendor.js -->
