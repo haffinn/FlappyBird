@@ -7,8 +7,22 @@
 	background-image: url('/images/bird.png'); /*each bird is 34px wide and 24px tall*/
 	transform: translateZ(0);
 	-webkit-animation: fly .8s steps(3) infinite;
-}
 
+}
+.Ground {
+	top: 550px;
+	width: 13em + 102,4em;
+	height: 2.9em;
+	position: relative;
+	background: url('/images/groundSmall.png') repeat-x; /*this pic is 130px wid and 29px*/
+	-webkit-animation: ground 2s infinite linear;
+
+}
+/* Makes the ground move to left */
+@-webkit-keyframes ground {
+    from { background-position:  2em; }
+    to { background-position:  -13em; }
+}
 .Scoreboard {
 	position: absolute;
 	left: 50%;
@@ -53,7 +67,6 @@ body {
 	padding: 0.2em 0;
 }
 .GameCanvas {
-
 	font-size: 10px;
 	position: absolute;
 	left: 50%;
@@ -63,14 +76,16 @@ body {
 	margin-left: -51.2em;
 	margin-top: -28.8em;
 	overflow: hidden;
-	background: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
+	background-image: url('/images/cloud.jpg');
 }
 
 /* Makes the bird fly */
 @-webkit-keyframes fly {
     from { background-position: 0em; }
     to { background-position: -10em; }
+
 }
+
 
 /*@-webkit-keyframes forward {
 	from { background-position: 0em; }
@@ -100,5 +115,4 @@ body {
 	/*-webkit-animation: forward .8s infinite;*/
 	/*background-image: url('http://www.smashingbuzz.com/wp-content/uploads/2014/03/10.jpg');*/
 }
-
 
