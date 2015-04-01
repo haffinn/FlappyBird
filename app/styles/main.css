@@ -25,6 +25,36 @@
     to { -webkit-transform: translate3d(-102px, 0, 0); } 
 }
 
+.PipeLower {
+	/*Each pipe is 70px wide and 576px height */
+	width: 7em;
+	bottom: -35em;
+	position: absolute;
+	width: 7em;
+	height: 57.6em;
+	background-position: 0;
+	background-image: url('/images/pipeslarge.png');
+}
+
+.PipeUpper {
+	/*Each pipe is 70px wide and 576px height */
+	/*left: 7em;*/
+	top: -35em;
+	width: 7em;
+	position: absolute;
+	width: 7em;
+	height: 57.6em;
+	background-position: -7em;
+	background-image: url('/images/pipeslarge.png');
+}
+
+.PipePair1 div {
+	left: 40em;
+}
+
+.PipePair2 div {
+	left: 80em;
+}
 /*.Ground {
 	top: 550px;
 	width: 13em + 102,4em;
