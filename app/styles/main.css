@@ -5,7 +5,6 @@
 	width: 3.4em;
 	height: 2.4em;
 	/*background-image: url('/images/bird.png');*/
-
 	overflow: hidden;
 	transform: translate3d(0,0,0);
 	-webkit-transform: translate3d(0, 0, 0);
@@ -134,7 +133,6 @@ body {
 }*/
 .Foreground-image {
 	position: absolute;
-	left: 0%;
 	top: 95%;
 	width: 200em;
 	height: 3em;
