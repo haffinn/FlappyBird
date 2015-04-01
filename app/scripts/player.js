@@ -5,14 +5,14 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 35; // * 10 pixels per second
+	var JUMP_SPEED = 25; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 13.95;
 	var INITIAL_POSITION_X = 25;
 	var INITIAL_POSITION_Y = 25;
 
-	var GRAVITY = 100;
-	var JUMP_VELOCITY = 0;
+	var GRAVITY = 80;
+	var VERTICAL_SPEED = 0;
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -45,12 +45,12 @@ window.Player = (function() {
 
 		if (Controls.keys.space) {
 			// Player jumps
-			JUMP_VELOCITY = SPEED;
+			VERTICAL_SPEED = JUMP_SPEED;
 		}
 
 		// #### GRAVITY ####
-		this.pos.y -= delta * JUMP_VELOCITY;
-		JUMP_VELOCITY -= GRAVITY * delta;
+		this.pos.y -= delta * VERTICAL_SPEED;
+		VERTICAL_SPEED -= GRAVITY * delta;
 		// #################
 		
 		this.checkCollisionWithBounds();
