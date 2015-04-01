@@ -5,14 +5,14 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 50; // * 10 pixels per second
+	var SPEED = 35; // * 10 pixels per second
 	var WIDTH = 5;
-	var HEIGHT = 13.8;
-	var INITIAL_POSITION_X = 30;
+	var HEIGHT = 13.95;
+	var INITIAL_POSITION_X = 25;
 	var INITIAL_POSITION_Y = 25;
 
-	var JUMP_VELOCITY = -250;
-	var GRAVITY = 1000;
+	var GRAVITY = 100;
+	var JUMP_VELOCITY = 0;
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -26,30 +26,31 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
-		this.vel = { x: 0, y: 0};
+		// this.vel = { x: 0, y: 0};
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		// if (Controls.keys.right) {
-		// 	this.pos.x += delta * SPEED;
-		// }
-		// if (Controls.keys.left) {
-		// 	this.pos.x -= delta * SPEED;
-		// }
-		// if (Controls.keys.down) {
-		// 	this.pos.y += delta * SPEED;
-		// }
 		// if (Controls.keys.up) {
 		// 	this.pos.y -= delta * SPEED;
 		// }
-
-		if(Controls.keys.space) {
-			this.pos.y -= delta * SPEED;
-		}
 		
+
+		// if (Controls.keys.space) {
+		// 	VERTSPEED = JUMPSPEED;
+		// }
+					
+		// // Gravity 
+		// this.pos.y -= delta * VERTSPEED;
+		// VERTSPEED -= GRAVITY * delta;
+
+		if (Controls.keys.space) {
+			// Player jumps
+			JUMP_VELOCITY = SPEED;
+		}
+
 		// #### GRAVITY ####
-		this.vel.y = GRAVITY * delta;
-		this.pos.y += delta * this.vel.y;
+		this.pos.y -= delta * JUMP_VELOCITY;
+		JUMP_VELOCITY -= GRAVITY * delta;
 		// #################
 		
 		this.checkCollisionWithBounds();
@@ -57,18 +58,6 @@ window.Player = (function() {
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
-
-	Player.prototype.onJump = function () {
-		// Player jumps
-
-		this.vel.y = -JUMP_VELOCITY;
-		console.log('player onjump recived');
-
-		// if (this.vel.y === 0) {
-		// 	this.vel.y = -JUMP_VELOCITY;
-		// }
-	};
-
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||

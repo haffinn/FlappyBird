@@ -2,8 +2,7 @@
   "name": "html5-game-new",
   "private": true,
   "dependencies": {
-    "jquery": "~1.11.0",
-    "phaser": "~2.3.0"
+    "jquery": "~1.11.0"
   },
   "devDependencies": {}
 }

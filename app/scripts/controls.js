@@ -30,26 +30,15 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyDown = function(e) {
-        // // Only jump if space wasn't pressed.
-        // if (e.keyCode === 32 && !this.keys.space) {
-        //     this._didJump = true;
-        // }
+        // Only jump if space wasn't pressed.
+        if (e.keyCode === 32 && !this.keys.space) {
+            this._didJump = true;
+        }
 
-        // // Remember that this button is down.
-        // if (e.keyCode in KEYS) {
-        //     var keyName = KEYS[e.keyCode];
-        //     this.keys[keyName] = true;
-        //     return false;
-        // }
-
-        if (e.keyCode in KEYS && !this.keys[KEYS[e.keyCode]]) {
+        // Remember that this button is down.
+        if (e.keyCode in KEYS) {
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = true;
-
-            if (keyName === 'space') {
-                this._didJump = true;
-                console.log('controls-onkeydown emitted');
-            }
             return false;
         }
     };
@@ -68,7 +57,6 @@ window.Controls = (function() {
     Controls.prototype.didJump = function() {
         var answer = this._didJump;
         this._didJump = false;
-        console.log('inside didJump in controls');
         return answer;
     };
 
