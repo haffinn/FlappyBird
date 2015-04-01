@@ -4,25 +4,43 @@
 	left: 0;
 	width: 3.4em;
 	height: 2.4em;
-	background-image: url('/images/bird.png'); /*each bird is 34px wide and 24px tall*/
-	transform: translateZ(0);
-	-webkit-animation: fly .8s steps(3) infinite;
+	/*background-image: url('/images/bird.png');*/
 
+	overflow: hidden;
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0, 0, 0);
 }
-.Ground {
+
+.anim {
+	position: absolute;
+	width: 10.2em;
+	height: 2.4em;
+	background-image: url('/images/bird.png');
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-animation: fly 0.3s infinite steps(3);
+}
+
+/* Makes the bird's wing flap - HARDWARE ACCELERATED */
+@-webkit-keyframes fly {
+	from { -webkit-transform: translate3d(0px, 0, 0); }
+    to { -webkit-transform: translate3d(-102px, 0, 0); } 
+}
+
+/*.Ground {
 	top: 550px;
 	width: 13em + 102,4em;
 	height: 2.9em;
 	position: relative;
-	background: url('/images/groundSmall.png') repeat-x; /*this pic is 130px wid and 29px*/
+	background: url('/images/groundSmall.png') repeat-x; this pic is 130px wid and 29px
 	-webkit-animation: ground 2s infinite linear;
+}*/
 
-}
 /* Makes the ground move to left */
-@-webkit-keyframes ground {
+/*@-webkit-keyframes ground {
     from { background-position:  2em; }
     to { background-position:  -13em; }
-}
+}*/
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;
@@ -33,6 +51,7 @@
 	box-sizing: border-box;
 	background: purple;
 	text-align: center;
+	transform: translateZ(0);
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
 }
@@ -42,6 +61,7 @@
 */
 .Scoreboard.is-visible {
 	-webkit-transform: none;
+	transform: translateZ(0);
 }
 
 .Scoreboard-restart {
@@ -51,6 +71,7 @@
 	border: 0.2em solid white;
 	background: none;
 	cursor: pointer;
+	transform: translateZ(0);
 }
 .Scoreboard-restartText {
 	font-family: 'Comic Sans MS', serif;
@@ -79,19 +100,6 @@ body {
 	background-image: url('/images/cloud.jpg');
 }
 
-/* Makes the bird fly */
-@-webkit-keyframes fly {
-    from { background-position: 0em; }
-    to { background-position: -10em; }
-
-}
-
-
-/*@-webkit-keyframes forward {
-	from { background-position: 0em; }
-	to { background-position: -1000em; }
-}*/
-
 .Background-image {
 	font-size: 10px;
 	position: absolute;
@@ -102,17 +110,39 @@ body {
 	margin-left: -51.2em;
 	margin-top: -28.8em;
 	overflow: hidden;
+	transform: translate3d (0,0,0);
 	background-image: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
 }
+
+/* Makes the ground move from right to left - HARDWARE ACCELERATED*/
+@-webkit-keyframes move {
+    from {
+        -webkit-transform: translate3d(0,0,0);
+    }
+    to { 
+        -webkit-transform: translate3d(-100em,0,0);
+    }
+}
+
+/*.Ground {
+	top: 550px;
+	width: 13em + 102,4em;
+	height: 2.9em;
+	position: relative;
+	background: url('/images/groundSmall.png') repeat-x; this pic is 130px wid and 29px
+	-webkit-animation: ground 2s infinite linear;
+}*/
 .Foreground-image {
 	position: absolute;
 	left: 0%;
-	top: 80%;
-	width: 102.4em;
-	height: 57.6em;
-	background-image: url('/images/ground.png');
-	transform: translateZ(0);
-	/*-webkit-animation: forward .8s infinite;*/
+	top: 95%;
+	width: 200em;
+	height: 3em;
+	/*background-image: url('/images/ground.png');*/
+	background-image: url('/images/groundSmall.png');
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-animation: move 8s infinite linear;
+
 	/*background-image: url('http://www.smashingbuzz.com/wp-content/uploads/2014/03/10.jpg');*/
 }
 

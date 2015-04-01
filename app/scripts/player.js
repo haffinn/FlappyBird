@@ -7,7 +7,7 @@ window.Player = (function() {
 	// for 1024x576px canvas.
 	var JUMP_SPEED = 25; // * 10 pixels per second
 	var WIDTH = 5;
-	var HEIGHT = 13.95;
+	var HEIGHT = 6.5;
 	var INITIAL_POSITION_X = 25;
 	var INITIAL_POSITION_Y = 25;
 
@@ -33,15 +33,6 @@ window.Player = (function() {
 		// if (Controls.keys.up) {
 		// 	this.pos.y -= delta * SPEED;
 		// }
-		
-
-		// if (Controls.keys.space) {
-		// 	VERTSPEED = JUMPSPEED;
-		// }
-					
-		// // Gravity 
-		// this.pos.y -= delta * VERTSPEED;
-		// VERTSPEED -= GRAVITY * delta;
 
 		if (Controls.keys.space) {
 			// Player jumps
@@ -56,7 +47,7 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
