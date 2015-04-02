@@ -208,3 +208,47 @@ body {
 	/*background-image: url('http://www.smashingbuzz.com/wp-content/uploads/2014/03/10.jpg');*/
 }
 
+.Welcome {
+	position: absolute;
+	left: 50%;
+	top: 10em;
+	height: 30em;
+	width: 40em;
+	margin-left: -20em;
+	box-sizing: border-box;
+	background: red;
+	text-align: center;
+	transform: translateZ(0);
+	-webkit-transform: translate(0, -40em);
+	-webkit-transition: -webkit-transform 0.5s;
+}
+.Welcome.is-visible {
+	-webkit-transform: none;
+	transform: translateZ(0);
+	border-radius: 40%;
+}
+
+.Welcome-play {
+	margin-top: 20em;
+	font-size: inherit;
+	padding: 0.4em 1.5em;
+	border: 0.2em solid white;
+	background: none;
+	cursor: pointer;
+	transform: translateZ(0);
+}
+
+.Welcome-playText {
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2.4em;
+	color: white;
+}
+
+.Welcome-hello {
+	position: absolute;
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2.5em;
+	color: white;
+	margin-top: 3em;
+	margin-right: 5em;
+}

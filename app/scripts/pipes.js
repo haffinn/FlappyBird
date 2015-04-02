@@ -33,13 +33,14 @@ window.Pipes = (function() {
 
 		// var pipeUpperHeight = Math.floor(Math.random() * (this.game.WORLD_HEIGHT - 150)) + 1;
 		// var pipeLowerHeight = this.game.WORLD_HEIGHT - (pipeUpperHeight + 150);
-		
+
 		var pipe = '<div class="PipePair" id="pip' +
 			this.pipeID +
 			'"><div class="PipeUpper" id="upper' +
 			this.pipeID +
 			'"></div><div class="PipeLower"></div></div>';
-
+			
+		//var pipe = '<div class="PipePair"><div class="PipeUpper"></div><div class="PipeLower"></div></div>';
 		// '<div class="pipe"><div style="height: ' + pipeUpperHeight + 'px" class="pipeUpperTest"></div><div style="height: ' + pipeLowerHeight + 'px" class="pipeLowerTest"></div></div>';
 		this.el.append(pipe);
 
