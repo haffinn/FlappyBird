@@ -1,3 +1,4 @@
+
 .Player {
 	position: absolute;
 	top: 0;
@@ -76,7 +77,7 @@
 .PipePair div {
 	/*left: 40em;*/
 	-webkit-transform: translate3d(0,0,0);
-	-webkit-animation: pipes 9s infinite linear;
+	-webkit-animation: pipes 9s linear;
 }
 
 @-webkit-keyframes pipes {

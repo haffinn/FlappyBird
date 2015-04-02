@@ -9,6 +9,7 @@ window.Pipes = (function() {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
+		this.pipeID = 0;
 	};
 
 	/**
@@ -21,20 +22,43 @@ window.Pipes = (function() {
 		// this.pos.y = INITIAL_POSITION_Y;
 	};
 
-	Pipes.prototype.onFrame = function(delta) {
+	Pipes.prototype.addPipe = function() {
 
-		console.log('Inside pipes onFrame');
-		console.log(delta);
+		// console.log('Inside pipes onFrame');
+		// console.log(delta);
+
+		++this.pipeID;
+		var removeID = this.pipeID;
+		console.log(this.pipeID);
 
 		// var pipeUpperHeight = Math.floor(Math.random() * (this.game.WORLD_HEIGHT - 150)) + 1;
 		// var pipeLowerHeight = this.game.WORLD_HEIGHT - (pipeUpperHeight + 150);
-		var pipe = '<div class="PipePair"><div class="PipeUpper"></div><div class="PipeLower"></div></div>';
+		
+		var pipe = '<div class="PipePair" id="pip' +
+			this.pipeID +
+			'"><div class="PipeUpper" id="upper' +
+			this.pipeID +
+			'"></div><div class="PipeLower"></div></div>';
 
 		// '<div class="pipe"><div style="height: ' + pipeUpperHeight + 'px" class="pipeUpperTest"></div><div style="height: ' + pipeLowerHeight + 'px" class="pipeLowerTest"></div></div>';
+		this.el.append(pipe);
 
-		// this.el.append(pipe);
+		// var anim = document.getElementById('pip' + this.pipeID);
+		var that = this;
+		$(document.getElementById('upper' + this.pipeID)).bind('webkitAnimationEnd', function() {
+			// Kalla í remove
+			that.removePipe(removeID);
+		});
 	};
 
+	Pipes.prototype.removePipe = function(pipID) {
+		// Removes 1 pipe after it's off screen
+		// console.log('LOL REMOVE ME');
+		console.log('REMOVE: ' + pipID);
+
+		var deleteMe = document.getElementById('pip' + pipID);
+		this.el.remove(deleteMe);
+	};
 
 	// Pipes.prototype.checkCollision = function() {
 	// 	if (this.pos.x < 0 ||

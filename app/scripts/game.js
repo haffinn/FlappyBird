@@ -12,6 +12,7 @@ window.Game = (function() {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
 		this.isPlaying = false;
+		this.frameCount = 0;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -27,6 +28,8 @@ window.Game = (function() {
 			return;
 		}
 
+		++this.frameCount;
+		// console.log(this.frameCount);
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
 				delta = now - this.lastFrame;
@@ -34,7 +37,17 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-		this.pipes.onFrame(delta);
+
+		if (this.frameCount === 100)
+		{
+			this.pipes.addPipe();
+			this.frameCount = 0;
+		}
+
+		// .addEventListener( 'webkitTransitionEnd', function(e) {
+		// 	console.log('finished animation');
+		// 	console.log(e);
+		// }, false);
 		
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -58,6 +71,7 @@ window.Game = (function() {
 	Game.prototype.reset = function() {
 		this.player.reset();
 		this.pipes.reset();
+		this.frameCount = 0;
 	};
 
 	/**
