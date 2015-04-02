@@ -10,7 +10,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		// this.Pipes = new window.Pipe(this.el.find('.Pipe'), this);
+		this.pipes = new window.Pipes(this.el.find('.pipeLOL'), this);
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
@@ -32,9 +32,16 @@ window.Game = (function() {
 				delta = now - this.lastFrame;
 		this.lastFrame = now;
 
+		console.log('fyrir playeronframe');
+
 		// Update game entities.
 		this.player.onFrame(delta);
-		// this.pipes.onFrame(delta);
+		
+		console.log('eftir playeronframe fyrir pipes onframe');
+
+		this.pipes.onFrame(delta);
+		
+		console.log('allt buið');
 		
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);

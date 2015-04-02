@@ -20,17 +20,17 @@
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         
         <!-- JQUERY FYRIR MUTE TAKKA -->
-        <script>
-            jQuery(document).ready(function(){
-                var audio = document.getElementById('playSong');
+        // <script>
+        //     jQuery(document).ready(function(){
+        //         var audio = document.getElementById('playSong');
 
-                document.getElementById('mute').addEventListener('click', function (songEvent){
-                    songEvent = songEvent || window.event;
-                    audio.muted = !audio.muted;
-                    songEvent.preventDefault();
-                }, true);
-            })
-        </script>
+        //         document.getElementById('mute').addEventListener('click', function (songEvent){
+        //             songEvent = songEvent || window.event;
+        //             audio.muted = !audio.muted;
+        //             songEvent.preventDefault();
+        //         }, true);
+        //     })
+        // </script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -51,15 +51,32 @@
                 <div class="anim"></div>
             </div>
 
-            <div class="PipePair1">
-                <div class="PipeUpper"></div>
-                <div class="PipeLower"></div>
-            </div>
+            <div class="pipeLOL"></div>
 
-            <div class="PipePair2">
-                <div class="PipeUpper"></div>
-                <div class="PipeLower"></div>
-            </div>
+            <div class="pipeUpperTest"></div>
+            <div class="pipeLowerTest"></div>
+
+            <!-- <div class="Pipes">
+                <div class="PipePair1">
+                    <div class="PipeUpper"></div>
+                    <div class="PipeLower"></div>
+                </div>
+
+                <div class="PipePair2">
+                    <div class="PipeUpper"></div>
+                    <div class="PipeLower"></div>
+                </div>
+
+                <div class="PipePair3">
+                    <div class="PipeUpper"></div>
+                    <div class="PipeLower"></div>
+                </div>
+
+                <div class="PipePair4">
+                    <div class="PipeUpper"></div>
+                    <div class="PipeLower"></div>
+                </div>
+            </div> -->
 
             <div class="Scoreboard">
                 <button class="Scoreboard-restart">
@@ -83,6 +100,7 @@
         <script src="scripts/game.js"></script>
         <script src="scripts/player.js"></script>
         <script src="scripts/utils.js"></script>
+        <script src="scripts/pipes.js"></script>
         <!-- endbuild -->
 </body>
 </html>

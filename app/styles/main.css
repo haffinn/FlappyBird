@@ -25,20 +25,44 @@
     to { -webkit-transform: translate3d(-102px, 0, 0); } 
 }
 
+
+
 .PipeLower {
 	/*Each pipe is 70px wide and 576px height */
-	width: 7em;
 	bottom: -35em;
+	width: 7em;
 	position: absolute;
 	width: 7em;
 	height: 57.6em;
 	background-position: 0;
 	background-image: url('/images/pipeslarge.png');
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.pipeUpperTest {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: 144px;
+	height: 576px;
+	width: 70px;
+	background-image: url('/images/pipeslarge.png');
+	display:none;
+}
+
+.pipeLowerTest {
+	position: absolute;;
+	top: 360px;
+	left: 50%;
+	margin-left: 144px;
+	height: 40px;
+	width: 70px;
+	background-image: url('/images/pipeslarge.png');
+	display: none;
 }
 
 .PipeUpper {
 	/*Each pipe is 70px wide and 576px height */
-	/*left: 7em;*/
 	top: -35em;
 	width: 7em;
 	position: absolute;
@@ -46,15 +70,43 @@
 	height: 57.6em;
 	background-position: -7em;
 	background-image: url('/images/pipeslarge.png');
+	-webkit-transform: translate3d(0,0,0);
 }
 
 .PipePair1 div {
 	left: 40em;
+	-webkit-transform: translate3d(0,0,0);
 }
 
 .PipePair2 div {
-	left: 80em;
+	left: 70em;
+	-webkit-transform: translate3d(0,0,0);
 }
+
+.PipePair3 div {
+	left: 100em;
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.PipePair4 div {
+	left: 130em;
+	-webkit-transform: translate3d(0,0,0);
+}
+
+.Pipes div div {
+	-webkit-animation: pipes 12s infinite linear;
+	-webkit-animation-delay: 0.4s;
+}
+
+@-webkit-keyframes pipes {
+	from {
+		-webkit-transform: translate3d(60em,0,0);
+	}
+	to {
+		-webkit-transform: translate3d(-14	0em,0,0);
+	}
+}
+
 /*.Ground {
 	top: 550px;
 	width: 13em + 102,4em;
