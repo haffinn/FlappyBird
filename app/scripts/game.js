@@ -22,6 +22,7 @@ window.Game = (function() {
 	 * entity to update itself.
 	 */
 	Game.prototype.onFrame = function() {
+
 		// Check if the game loop should stop.
 		if (!this.isPlaying) {
 			return;
@@ -50,6 +51,19 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
+	};
+
+	//Welcome Menu
+	Game.prototype.prestart = function() {
+		var that = this;
+		var welcomeEl = this.el.find('.Welcome');
+		welcomeEl
+			.addClass('is-visible')
+			.find('.Welcome-play')
+				.one('click', function() {
+					welcomeEl.removeClass('is-visible');
+					that.start();
+				});
 	};
 
 	/**
