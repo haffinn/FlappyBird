@@ -32,17 +32,35 @@ window.Pipes = (function() {
 		// console.log(this.pipeID);
 
 		// var pipeUpperHeight = Math.floor(Math.random() * (this.game.WORLD_HEIGHT - 150)) + 1;
+		// Math.random() * (max - min) + min;
+
+		var pipeUpperHeight = Math.floor(Math.random() * (50 - 24) + 24);
+		var pipeLowerHeight = 72 - pipeUpperHeight;
 		// var pipeLowerHeight = this.game.WORLD_HEIGHT - (pipeUpperHeight + 150);
 
+		console.log('Upper: ' + pipeUpperHeight);
+		console.log('Lower: ' + pipeLowerHeight);
+		console.log('');
+		// var pipe = '<div class="PipePair" id="pip' +
+		// 	this.pipeID +
+		// 	'"><div class="PipeUpper" id="upper' +
+		// 	this.pipeID +
+		// 	'"></div><div class="PipeLower"></div></div>';
+			
 		var pipe = '<div class="PipePair" id="pip' +
 			this.pipeID +
 			'"><div class="PipeUpper" id="upper' +
 			this.pipeID +
-			'"></div><div class="PipeLower"></div></div>';
-			
+			'" style="bottom: ' +
+			pipeUpperHeight +
+			'em;"></div><div class="PipeLower" style="top: ' +
+			pipeLowerHeight +
+			'em;"></div></div>';
+
 		//var pipe = '<div class="PipePair"><div class="PipeUpper"></div><div class="PipeLower"></div></div>';
 		// '<div class="pipe"><div style="height: ' + pipeUpperHeight + 'px" class="pipeUpperTest"></div><div style="height: ' + pipeLowerHeight + 'px" class="pipeLowerTest"></div></div>';
-		
+		// 
+		// pipe.append('lol');
 		this.el.append(pipe);
 
 		// var anim = document.getElementById('pip' + this.pipeID);
@@ -61,9 +79,16 @@ window.Pipes = (function() {
 		// var deleteMe = document.getElementById('pip' + pipID);
 		// console.log(deleteMe);
 
+		// NOTA ÞENNAN:
 		$('#pip' + pipID).remove();
+		// console.log(pipID);
 
+		// Ekki þennan...
 		// this.el.remove(deleteMe);
+	};
+
+	Pipes.prototype.checkCollision = function() {
+
 	};
 
 	// Pipes.prototype.checkCollision = function() {

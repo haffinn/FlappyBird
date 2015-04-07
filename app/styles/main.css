@@ -30,7 +30,7 @@
 
 .PipeLower {
 	/*Each pipe is 70px wide and 576px height */
-	bottom: -35em;
+	/*top: 35em;*/
 	width: 7em;
 	position: absolute;
 	width: 7em;
@@ -40,31 +40,9 @@
 	-webkit-transform: translate3d(0,0,0);
 }
 
-.pipeUpperTest{
-	position: absolute;
-	top: 0px;
-	left: 50%;
-	margin-left: 144px;
-	height: 576px;
-	width: 70px;
-	background-image: url('/images/pipeslarge.png');
-	display:none;
-}
-
-.pipeLowerTest {
-	position: absolute;;
-	top: 360px;
-	left: 50%;
-	margin-left: 144px;
-	height: 40px;
-	width: 70px;
-	background-image: url('/images/pipeslarge.png');
-	display: none;
-}
-
 .PipeUpper {
 	/*Each pipe is 70px wide and 576px height */
-	top: -35em;
+	/*bottom: 35em;*/
 	width: 7em;
 	position: absolute;
 	width: 7em;
