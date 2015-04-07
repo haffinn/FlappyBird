@@ -29,7 +29,7 @@ window.Pipes = (function() {
 
 		++this.pipeID;
 		var removeID = this.pipeID;
-		console.log(this.pipeID);
+		// console.log(this.pipeID);
 
 		// var pipeUpperHeight = Math.floor(Math.random() * (this.game.WORLD_HEIGHT - 150)) + 1;
 		// var pipeLowerHeight = this.game.WORLD_HEIGHT - (pipeUpperHeight + 150);
@@ -42,6 +42,7 @@ window.Pipes = (function() {
 			
 		//var pipe = '<div class="PipePair"><div class="PipeUpper"></div><div class="PipeLower"></div></div>';
 		// '<div class="pipe"><div style="height: ' + pipeUpperHeight + 'px" class="pipeUpperTest"></div><div style="height: ' + pipeLowerHeight + 'px" class="pipeLowerTest"></div></div>';
+		
 		this.el.append(pipe);
 
 		// var anim = document.getElementById('pip' + this.pipeID);
@@ -55,10 +56,14 @@ window.Pipes = (function() {
 	Pipes.prototype.removePipe = function(pipID) {
 		// Removes 1 pipe after it's off screen
 		// console.log('LOL REMOVE ME');
-		console.log('REMOVE: ' + pipID);
+		// console.log('REMOVE: ' + pipID);
 
-		var deleteMe = document.getElementById('pip' + pipID);
-		this.el.remove(deleteMe);
+		// var deleteMe = document.getElementById('pip' + pipID);
+		// console.log(deleteMe);
+
+		$('#pip' + pipID).remove();
+
+		// this.el.remove(deleteMe);
 	};
 
 	// Pipes.prototype.checkCollision = function() {
