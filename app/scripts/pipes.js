@@ -83,6 +83,7 @@ window.Pipes = (function() {
 
 			if (player.offset().left >= (currentPipe.offset().left + currentPipe.width()) ) {
 				$('#currentscore').text(this.myID);
+				$('#Scoreboard-score').text(this.myID);
 				++this.myID;
 			}
 		}
