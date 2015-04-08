@@ -33,8 +33,11 @@ window.Player = (function() {
 		// if (Controls.keys.up) {
 		// 	this.pos.y -= delta * SPEED;
 		// }
+		var audio = document.getElementById('wingsSong');
 
 		if (Controls.keys.space) {
+			audio.pause();
+			audio.play();
 			// Player jumps
 			VERTICAL_SPEED = JUMP_SPEED;
 		}
@@ -48,6 +51,7 @@ window.Player = (function() {
 
 		// Update UI
 		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0)');
+
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {

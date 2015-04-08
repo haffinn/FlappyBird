@@ -16,6 +16,7 @@ window.Game = (function() {
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+		this.themeAudio = document.getElementById('playSong');
 	};
 
 	/**
@@ -23,7 +24,6 @@ window.Game = (function() {
 	 * entity to update itself.
 	 */
 	Game.prototype.onFrame = function() {
-
 		// Check if the game loop should stop.
 		if (!this.isPlaying) {
 			return;
@@ -59,7 +59,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.start = function() {
 		this.reset();
-
+		this.themeAudio.play();
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -94,6 +94,12 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 
+		/*Background music pauses and collision sound is played*/
+		var themeAudio = document.getElementById('playSong');
+		themeAudio.pause();
+		var audio = document.getElementById('collisionSong');
+		audio.play();
+		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');

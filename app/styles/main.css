@@ -139,6 +139,12 @@ body {
 	margin-top: -28.8em;
 	overflow: hidden;
 	background-image: url('/images/cloud.jpg');
+	-webkit-animation: animSky 10s linear infinite ;
+    animation: animSky move 10s linear infinite;
+}
+@-webkit-keyframes animSky {
+   from { background-position: 0em; }
+   to { background-position: -55em; }
 }
 
 .Background-image {
