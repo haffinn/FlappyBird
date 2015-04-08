@@ -144,6 +144,7 @@ window.Pipes = (function() {
 				currentPipe.css('border-style', 'none');
 				currentPipeLower.css('border-style', 'none');
 				$('#currentscore').text(this.myID);
+				$('#Scoreboard-score').text(this.myID);
 				++this.myID;
 			}
 		}
