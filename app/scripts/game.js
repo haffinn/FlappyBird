@@ -70,7 +70,9 @@ window.Game = (function() {
 
 	//Welcome Menu
 	Game.prototype.prestart = function() {
-		this.reset();
+		var player = $('.Player');
+		player.css('top', '25em');
+		player.css('left', '25em');
 
 		var that = this;
 		var welcomeEl = this.el.find('.Welcome');
@@ -80,6 +82,8 @@ window.Game = (function() {
 				.one('click', function() {
 					welcomeEl.removeClass('is-visible');
 					that.start();
+					player.css('top', '0');
+					player.css('left', '0');
 				});
 	};
 
