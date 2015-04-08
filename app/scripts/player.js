@@ -11,6 +11,7 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 25;
 	var INITIAL_POSITION_Y = 25;
 
+
 	var GRAVITY = 80;
 	var VERTICAL_SPEED = 0;
 
@@ -39,6 +40,7 @@ window.Player = (function() {
 			audio.pause();
 			audio.play();
 			// Player jumps
+			console.log('jumpppp');
 			VERTICAL_SPEED = JUMP_SPEED;
 		}
 
@@ -53,6 +55,11 @@ window.Player = (function() {
 		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0)');
 
 	};
+
+
+		/**
+	 *	Updates the score each
+	 */
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||

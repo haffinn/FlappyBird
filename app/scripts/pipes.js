@@ -61,6 +61,7 @@ window.Pipes = (function() {
 		// Removes 1 pipe after it's off screen
 		// console.log('LOL REMOVE ME');
 		// console.log('REMOVE: ' + pipID);
+		$('#currentscore').text(pipID);
 
 		// var deleteMe = document.getElementById('pip' + pipID);
 		// console.log(deleteMe);

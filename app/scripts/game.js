@@ -7,12 +7,15 @@ window.Game = (function() {
 	 * @param {Element} el jQuery element containing the game.
 	 * @constructor
 	 */
+
+
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
 		this.isPlaying = false;
 		this.frameCount = 0;
+		
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -86,7 +89,9 @@ window.Game = (function() {
 		this.player.reset();
 		this.pipes.reset();
 		this.frameCount = 0;
+		$('#currentscore').text(0);
 	};
+
 
 	/**
 	 * Signals that the game is over.
