@@ -90,7 +90,7 @@
 	width: 40em;
 	margin-left: -20em;
 	box-sizing: border-box;
-	background: purple;
+	background: blue;
 	text-align: center;
 	transform: translateZ(0);
 	-webkit-transform: translate3d(0, -40em, 0);
@@ -103,6 +103,7 @@
 .Scoreboard.is-visible {
 	-webkit-transform: none;
 	transform: translateZ(0);
+	border-radius: 40%;
 }
 
 .Scoreboard-restart {
