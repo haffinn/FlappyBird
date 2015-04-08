@@ -153,7 +153,7 @@ body {
 	background-repeat: repeat-x;
 	background: url('/images/bg1.png');
 	background-size: contain;
-	-webkit-animation: animSky 5s linear infinite;
+	-webkit-animation: animSky 40s linear infinite;
 	-webkit-transform: translate3d(0,0,0);
 }
 
