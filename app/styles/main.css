@@ -7,6 +7,7 @@
 	height: 2.4em;
 	/*background-image: url('/images/bird.png');*/
 	overflow: hidden;
+	z-index: 1;
 	transform: translate3d(0,0,0);
 	-webkit-transform: translate3d(0, 0, 0);
 }
@@ -138,23 +139,32 @@ body {
 	margin-left: -51.2em;
 	margin-top: -28.8em;
 	overflow: hidden;
-	background-image: url('/images/cloud.jpg');
+	/*background-image: url('/images/cloud.jpg');*/
 }
 
 .Background-image {
-	font-size: 10px;
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 102.4em;
-	height: 57.6em;
-	margin-left: -51.2em;
-	margin-top: -28.8em;
+	left: 0;
+	top: 0;
+	width: 400%;
+	height: 100%;
 	overflow: hidden;
-	transform: translate3d (0,0,0);
-	background-image: url('http://pivotnetworks.wpengine.netdna-cdn.com/wp-content/uploads/cloud-computing-solutions.jpg');
+	z-index: -1;
+	background-repeat: repeat-x;
+	background: url('/images/bg1.png');
+	background-size: contain;
+	-webkit-animation: animSky 5s linear infinite;
+	-webkit-transform: translate3d(0,0,0);
 }
 
+@-webkit-keyframes animSky {
+   from { 
+   		-webkit-transform: translate3d(0,0,0);
+   	}
+    to { 
+    	-webkit-transform: translate3d(-86em,0,0);
+    }
+}
 /* Makes the ground move from right to left - HARDWARE ACCELERATED*/
 @-webkit-keyframes move {
     from {
@@ -194,7 +204,7 @@ body {
 	width: 40em;
 	margin-left: -20em;
 	box-sizing: border-box;
-	background: red;
+	background: blue;
 	text-align: center;
 	transform: translateZ(0);
 	-webkit-transform: translate(0, -40em);
@@ -229,4 +239,20 @@ body {
 	color: white;
 	margin-top: 3em;
 	margin-right: 5em;
+}
+.Controls {
+	position: absolute;
+}
+
+p {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	font-size: 400%;
+	font-weight: 700;
+}
+
+.highscore {
+
 }
