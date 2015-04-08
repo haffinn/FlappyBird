@@ -70,20 +70,21 @@ window.Pipes = (function() {
 			if( ((player.offset().top) <= ( this.worldHeight + currentPipe.offset().top)) &&
 				((player.offset().left + player.width()) >= currentPipe.offset().left) &&
 				(player.offset().left <= (currentPipe.offset().left + currentPipe.width())) ) {
-				currentPipe.css('border-color', 'blue');
+				// currentPipe.css('border-color', 'blue');
 				return this.game.gameover();
 			}
 			
 			if ( (player.offset().top + (player.height())) >= (currentPipeLower.offset().top) &&
 				(player.offset().left + player.width() >= currentPipeLower.offset().left) &&
 				(player.offset().left <= (currentPipeLower.offset().left + currentPipeLower.width()) ) ) {
-				currentPipeLower.css('border-color', 'blue');
+				// currentPipeLower.css('border-color', 'blue');
 				return this.game.gameover();
 			}
 
 			if (player.offset().left >= (currentPipe.offset().left + currentPipe.width()) ) {
-				$('#currentscore').text(this.myID);
-				$('#Scoreboard-score').text(this.myID);
+				++this.game.score;
+				$('#currentscore').text(this.game.score);
+				$('#Scoreboard-score').text(this.game.score);
 				++this.myID;
 			}
 		}

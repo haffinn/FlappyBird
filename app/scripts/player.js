@@ -40,7 +40,6 @@ window.Player = (function() {
 			audio.pause();
 			audio.play();
 			// Player jumps
-			console.log('jumpppp');
 			VERTICAL_SPEED = JUMP_SPEED;
 		}
 

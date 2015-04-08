@@ -7,7 +7,7 @@ window.Game = (function() {
 	 * @param {Element} el jQuery element containing the game.
 	 * @constructor
 	 */
-	var highscore = 0;
+	// var highscore = 0;
 
 	var Game = function(el) {
 		this.el = el;
@@ -15,8 +15,8 @@ window.Game = (function() {
 		this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
 		this.isPlaying = false;
 		this.frameCount = 0;
-
-		
+		this.highscore = 0;
+		this.score = 0;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -96,7 +96,8 @@ window.Game = (function() {
 		this.pipes.reset();
 		this.frameCount = 0;
 
-		$('#currentscore').text(0);
+		this.score = 0;
+		$('#currentscore').text(this.score);
 	};
 
 
@@ -107,16 +108,19 @@ window.Game = (function() {
 		this.isPlaying = false;
 
 		/*Background music pauses and collision sound is played*/
+		// this.score = $('#currentscore').text();
+
 		var themeAudio = document.getElementById('playSong');
 		themeAudio.pause();
 		var audio = document.getElementById('collisionSong');
 		audio.play();
-		var score = $('#currentscore').text();
-		$('.Scoreboard-score').text('Score: ' + score);
-		if(highscore < score) {
-			highscore = score;
+
+		if(this.highscore < this.score) {
+			this.highscore = this.score;
 		}
-		$('.Scoreboard-highscore').text('High score: ' + highscore);
+
+		$('.Scoreboard-score').text('Score: ' + this.score);
+		$('.Scoreboard-highscore').text('High score: ' + this.highscore);
 		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
