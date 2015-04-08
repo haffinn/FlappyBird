@@ -17,11 +17,12 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
 
-        <!-- endbuild -->
-       <!--  // <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
-        
-        <!-- JQUERY FYRIR MUTE TAKKA -->
-        <!-- <script>
+        <!-- endbuild --> 
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+
+        <!-- JQUERY FYRIR MUTE TAKKA - færa í js skra? -->
+        <script>
             jQuery(document).ready(function(){
                 var audio = document.getElementById('playSong');
 
@@ -30,8 +31,8 @@
                     audio.muted = !audio.muted;
                     songEvent.preventDefault();
                 }, true);
-            })
-        </script> -->
+            });
+        </script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -40,14 +41,26 @@
 
 <!--         <a href="" class="button btn btn-default">Click</a> 
         <div id="zoomBox"></div> -->
+        
+        <!-- Collision sound -->
+        <audio id="collisionSong"> 
+            <source src="collisionSound.mp3" />
+        </audio> 
+
+        <!-- BirdWing sound-->
+        <audio id="wingsSong"> 
+            <source src="wings.m4a" />
+        </audio> 
+        <!-- Background sound - AUDIO + MUTE -->
+        <audio id="playSong" autoplay="autoplay"> 
+            <source src="BPL.mp3" />
+        </audio>
+         <a href="#" id="mute" class="glyphicon glyphicon-volume-up" style="zindex:100000;">MUTE</a>
+        <!--AUDIO + MUTE ENDAR-->
+        
 
         <div class="GameCanvas" id="GameCan">
-            <!-- AUDIO + MUTE -->
-            <!-- <audio id="playSong" autoplay="autoplay"> 
-                <source src="BPL.mp3" />
-            </audio>  -->
- 
-            <!-- <a href="" id="mute" class="glyphicon glyphicon-volume-up" style="zindex:100000;"></a>  -->
+
             <div class="Welcome">
                 <span class="Welcome-hello">Would you like to play a game?</span>
                 <button class="Welcome-play">
@@ -59,7 +72,7 @@
             <div class="Player" style="border-style: solid; border-color: black; border-width: 1px;">
                 <div class="anim"></div>
             </div>
-
+            
             <div class="Pipes"></div>
 
             <!-- <div class="Pipes">
@@ -76,21 +89,22 @@
                 </div>
             </div> -->
 
-
-
+            <p id="currentscore">0</p>
             <div class="Scoreboard">
+                
+
                 <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
             <div class="Foreground-image"></div>
-            <!-- <div class="Background-image"></div> -->
+            <div class="Background-image"></div>
         
         </div> 
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!--<script src="bower_components/jquery/dist/jquery.js"></script>-->
         <!-- endbower -->
         <!-- endbuild -->
 

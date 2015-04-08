@@ -11,6 +11,7 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 25;
 	var INITIAL_POSITION_Y = 25;
 
+
 	var GRAVITY = 80;
 	var VERTICAL_SPEED = 0;
 
@@ -33,9 +34,13 @@ window.Player = (function() {
 		// if (Controls.keys.up) {
 		// 	this.pos.y -= delta * SPEED;
 		// }
+		var audio = document.getElementById('wingsSong');
 
 		if (Controls.keys.space) {
+			audio.pause();
+			audio.play();
 			// Player jumps
+			console.log('jumpppp');
 			VERTICAL_SPEED = JUMP_SPEED;
 		}
 
@@ -48,7 +53,13 @@ window.Player = (function() {
 
 		// Update UI
 		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0)');
+
 	};
+
+
+		/**
+	 *	Updates the score each
+	 */
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.y < 0 ||

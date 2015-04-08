@@ -7,6 +7,8 @@ window.Game = (function() {
 	 * @param {Element} el jQuery element containing the game.
 	 * @constructor
 	 */
+
+
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
@@ -14,9 +16,11 @@ window.Game = (function() {
 		// this.pipes = new window.Pipes(this.el.find('.upper1'), this);
 		this.isPlaying = false;
 		this.frameCount = 0;
+		
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+		this.themeAudio = document.getElementById('playSong');
 	};
 
 	/**
@@ -24,7 +28,6 @@ window.Game = (function() {
 	 * entity to update itself.
 	 */
 	Game.prototype.onFrame = function() {
-
 		// Check if the game loop should stop.
 		if (!this.isPlaying) {
 			return;
@@ -61,7 +64,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.start = function() {
 		this.reset();
-
+		this.themeAudio.play();
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -89,7 +92,11 @@ window.Game = (function() {
 	Game.prototype.reset = function() {
 		this.player.reset();
 		this.pipes.reset();
+		this.frameCount = 0;
+		
+		$('#currentscore').text(0);
 	};
+
 
 	/**
 	 * Signals that the game is over.
@@ -97,6 +104,12 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 
+		/*Background music pauses and collision sound is played*/
+		var themeAudio = document.getElementById('playSong');
+		themeAudio.pause();
+		var audio = document.getElementById('collisionSong');
+		audio.play();
+		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
