@@ -11,6 +11,7 @@ window.Game = (function() {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
+		// this.pipes = new window.Pipes(this.el.find('.upper1'), this);
 		this.isPlaying = false;
 		this.frameCount = 0;
 
@@ -28,9 +29,8 @@ window.Game = (function() {
 		if (!this.isPlaying) {
 			return;
 		}
-
 		++this.frameCount;
-		// console.log(this.frameCount);
+		
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
 				delta = now - this.lastFrame;
@@ -38,6 +38,8 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
+		// this.pipes.addPipe(); // remove this
+		// this.pipes.onFrame(); // For testing
 
 		if (this.frameCount === 100)
 		{
@@ -68,6 +70,8 @@ window.Game = (function() {
 
 	//Welcome Menu
 	Game.prototype.prestart = function() {
+		this.reset();
+
 		var that = this;
 		var welcomeEl = this.el.find('.Welcome');
 		welcomeEl
@@ -85,7 +89,6 @@ window.Game = (function() {
 	Game.prototype.reset = function() {
 		this.player.reset();
 		this.pipes.reset();
-		this.frameCount = 0;
 	};
 
 	/**

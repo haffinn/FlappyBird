@@ -37,6 +37,7 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
 <!--         <a href="" class="button btn btn-default">Click</a> 
         <div id="zoomBox"></div> -->
 
@@ -55,16 +56,23 @@
             </div>
             <div class="Ground"></div>
 
-            <div class="Player">
+            <div class="Player" style="border-style: solid; border-color: black; border-width: 1px;">
                 <div class="anim"></div>
             </div>
 
             <div class="Pipes"></div>
 
-<!--             <div class="Pipes">
+            <!-- <div class="Pipes">
                 <div class="PipePair" id="pip1">
-                    <div class="PipeUpper"></div>
-                    <div class="PipeLower"></div>
+                    <div class="PipeUpper" id="upper1" style="bottom: 45em; left: 25em;"></div>
+                    <div class="PipeLower" id="lower1" style="top: 26em; left: 25em;"></div>
+                </div>
+            </div> -->
+
+<!--              <div class="Pipes">
+                <div class="PipePair" id="pip1">
+                    <div class="PipeUpper" id="upper1"></div>
+                    <div class="PipeLower" id="lower1"></div>
                 </div>
             </div> -->
 
@@ -94,5 +102,5 @@
         <script src="scripts/utils.js"></script>
         <script src="scripts/pipes.js"></script>
         <!-- endbuild -->
-</body>
+    </body>
 </html>

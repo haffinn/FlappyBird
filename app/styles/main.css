@@ -43,7 +43,6 @@
 .PipeUpper {
 	/*Each pipe is 70px wide and 576px height */
 	/*bottom: 35em;*/
-	width: 7em;
 	position: absolute;
 	width: 7em;
 	height: 57.6em;
@@ -93,7 +92,7 @@
 	background: purple;
 	text-align: center;
 	transform: translateZ(0);
-	-webkit-transform: translate(0, -40em);
+	-webkit-transform: translate3d(0, -40em, 0);
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
@@ -197,7 +196,7 @@ body {
 	background: red;
 	text-align: center;
 	transform: translateZ(0);
-	-webkit-transform: translate(0, -40em);
+	-webkit-transform: translate3d(0, -40em, 0);
 	-webkit-transition: -webkit-transform 0.5s;
 }
 .Welcome.is-visible {
