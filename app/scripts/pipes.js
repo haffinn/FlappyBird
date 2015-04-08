@@ -62,8 +62,6 @@ window.Pipes = (function() {
 		// Removes 1 pipe after it's off screen
 		// console.log('LOL REMOVE ME');
 		// console.log('REMOVE: ' + pipID);
-		$('#currentscore').text(pipID);
-
 		// var deleteMe = document.getElementById('pip' + pipID);
 		// console.log(deleteMe);
 		
@@ -145,6 +143,7 @@ window.Pipes = (function() {
 			if (player.offset().left >= (currentPipe.offset().left + currentPipe.width()) ) {
 				currentPipe.css('border-style', 'none');
 				currentPipeLower.css('border-style', 'none');
+				$('#currentscore').text(this.myID);
 				++this.myID;
 			}
 		}
