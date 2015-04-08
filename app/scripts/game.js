@@ -13,7 +13,6 @@ window.Game = (function() {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.pipes = new window.Pipes(this.el.find('.Pipes'), this);
-		// this.pipes = new window.Pipes(this.el.find('.upper1'), this);
 		this.isPlaying = false;
 		this.frameCount = 0;
 		
@@ -41,8 +40,6 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-		// this.pipes.addPipe(); // remove this
-		// this.pipes.onFrame(); // For testing
 
 		if (this.frameCount === 100)
 		{
@@ -93,7 +90,7 @@ window.Game = (function() {
 		this.player.reset();
 		this.pipes.reset();
 		this.frameCount = 0;
-		
+
 		$('#currentscore').text(0);
 	};
 

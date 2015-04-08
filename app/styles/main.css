@@ -174,14 +174,6 @@ body {
     }
 }
 
-/*.Ground {
-	top: 550px;
-	width: 13em + 102,4em;
-	height: 2.9em;
-	position: relative;
-	background: url('/images/groundSmall.png') repeat-x; this pic is 130px wid and 29px
-	-webkit-animation: ground 2s infinite linear;
-}*/
 .Foreground-image {
 	position: absolute;
 	top: 95%;
